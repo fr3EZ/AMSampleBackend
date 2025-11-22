@@ -1,0 +1,6 @@
+@AMSample.WebAPI_HostAddress = http://localhost:5080
+
+GET {{AMSample.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
