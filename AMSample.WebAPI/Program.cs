@@ -1,38 +1,65 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
+builder.Logging.AddConsole();
+
+builder.Services.AddApplication(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+builder.Services.AddScoped<ApiExceptionFilterAttribute>();
+builder.Services.AddControllers(cfg => cfg.Filters.AddService<ApiExceptionFilterAttribute>());
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var devOrigin = "devOrigin";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(devOrigin,
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
+builder.Services.AddQuartz(q =>
+{
+    //q.UseMicrosoftDependencyInjectionJobFactory();
+    
+    var jobKey = new JobKey(nameof(MeteoritesSyncJob));
+    
+    q.AddJob<MeteoritesSyncJob>(options => options
+            .WithIdentity(jobKey)
+            .StoreDurably() // Сохранять job между перезапусками
+    );
+
+    q.AddTrigger(options => options
+        .WithIdentity($"{nameof(MeteoritesSyncJob)}-trigger")
+        .ForJob(jobKey)
+        //.WithCronSchedule("0 0 3 * * ?")
+        .WithCronSchedule("0 */2 * * * ?") // Каждые 2 минуты
+        .WithDescription("Meteorites sync job trigger")
+    );
+});
+
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
+    app.UseCors(devOrigin);
 }
 
 app.UseHttpsRedirection();
+app.MapControllers();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast");
+app.UseStatusCodePages();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int) (TemperatureC / 0.5556);
-}

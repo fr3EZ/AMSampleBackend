@@ -4,14 +4,111 @@
     "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure/AMSample.Infrastructure.csproj": {}
   },
   "projects": {
-    "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure/AMSample.Infrastructure.csproj": {
+    "/Users/fr3ez/RiderProjects/AMSample/AMSample.Application/AMSample.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure/AMSample.Infrastructure.csproj",
-        "projectName": "AMSample.Infrastructure",
-        "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure/AMSample.Infrastructure.csproj",
+        "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Application/AMSample.Application.csproj",
+        "projectName": "AMSample.Application",
+        "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Application/AMSample.Application.csproj",
         "packagesPath": "/Users/fr3ez/.nuget/packages/",
-        "outputPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure/obj/",
+        "outputPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/fr3ez/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net10.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net10.0": {
+            "targetAlias": "net10.0",
+            "projectReferences": {
+              "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj": {
+                "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net10.0": {
+          "targetAlias": "net10.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[15.1.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.1.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[12.1.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[13.1.0, )"
+            },
+            "Microsoft.Extensions.Caching.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.Extensions.Options.ConfigurationExtensions": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj",
+        "projectName": "AMSample.Domain",
+        "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj",
+        "packagesPath": "/Users/fr3ez/.nuget/packages/",
+        "outputPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/fr3ez/.nuget/NuGet/NuGet.Config"
@@ -43,6 +140,115 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure/AMSample.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure/AMSample.Infrastructure.csproj",
+        "projectName": "AMSample.Infrastructure",
+        "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure/AMSample.Infrastructure.csproj",
+        "packagesPath": "/Users/fr3ez/.nuget/packages/",
+        "outputPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/fr3ez/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net10.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net10.0": {
+            "targetAlias": "net10.0",
+            "projectReferences": {
+              "/Users/fr3ez/RiderProjects/AMSample/AMSample.Application/AMSample.Application.csproj": {
+                "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Application/AMSample.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net10.0": {
+          "targetAlias": "net10.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[15.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.Extensions.Http.Polly": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Microsoft.Extensions.Options.ConfigurationExtensions": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[8.6.5, )"
+            },
+            "Polly.Extensions.Http": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.10.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

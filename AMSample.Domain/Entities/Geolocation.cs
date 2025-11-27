@@ -1,7 +1,10 @@
+using AMSample.Domain.Common;
+using AMSample.Domain.Enums;
+
 namespace AMSample.Domain.Entities;
 
-public class Geolocation
+public class Geolocation : Entity
 {
-    public string Type { get; private set; }
-    public decimal[] Coordinates { get; private set; }
+    public GeometryType Type { get; set; }
+    public decimal[]? Coordinates { get; set; }
 }

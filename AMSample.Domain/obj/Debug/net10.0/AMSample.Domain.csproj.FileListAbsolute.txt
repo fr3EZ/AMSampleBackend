@@ -1,0 +1,12 @@
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/bin/Debug/net10.0/AMSample.Domain.deps.json
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/bin/Debug/net10.0/AMSample.Domain.dll
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/bin/Debug/net10.0/AMSample.Domain.pdb
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/obj/Debug/net10.0/AMSample.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/obj/Debug/net10.0/AMSample.Domain.AssemblyInfoInputs.cache
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/obj/Debug/net10.0/AMSample.Domain.AssemblyInfo.cs
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/obj/Debug/net10.0/AMSample.Domain.csproj.CoreCompileInputs.cache
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/obj/Debug/net10.0/AMSample.Domain.sourcelink.json
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/obj/Debug/net10.0/AMSample.Domain.dll
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/obj/Debug/net10.0/refint/AMSample.Domain.dll
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/obj/Debug/net10.0/AMSample.Domain.pdb
+/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/obj/Debug/net10.0/ref/AMSample.Domain.dll

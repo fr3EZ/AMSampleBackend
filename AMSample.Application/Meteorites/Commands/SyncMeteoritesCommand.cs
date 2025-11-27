@@ -1,19 +1,36 @@
-using AMSample.Application.Interfaces;
-using AMSample.Domain.Entities;
-using AutoMapper;
-using MediatR;
-
 namespace AMSample.Application.Meteorites.Commands;
 
-public record SyncMeteoritesCommand(IEnumerable<Meteorite> NewMeteoriteData) : IRequest<Unit>;
+public record SyncMeteoritesCommand : IRequest<Unit>;
 
-public class SyncMeteoritesCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
-    : IRequestHandler<SyncMeteoritesCommand, Unit>
+public class SyncMeteoritesCommandHandler(
+    IBatchMeteoriteProcessor batchMeteoriteProcessor,
+    IMeteoriteApiService meteoriteApiService,
+    IRedisCacheService redisCacheService,
+    ILogger<SyncMeteoritesCommandHandler> logger) : IRequestHandler<SyncMeteoritesCommand, Unit>
 {
     public async Task<Unit> Handle(SyncMeteoritesCommand request, CancellationToken cancellationToken)
     {
-        var currentData = await unitOfWork.MeteoritesRepository.GetFiltered();
-        
-        return Unit.Value;
+        try
+        {
+            logger.LogInformation("Meteorites sync started");
+
+            var response = await meteoriteApiService.GetMeteoritesResponse();
+
+            await using var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
+
+            await batchMeteoriteProcessor.ProcessMeteoriteBatchesByStreamAsync(stream);
+
+            await redisCacheService.RemoveByPrefixAsync(Constants.MeteoritesCachePrefix,cancellationToken);
+
+            logger.LogInformation("Meteorites sync finished");
+
+            return Unit.Value;
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Error while syncing meteorites");
+
+            return Unit.Value;
+        }
     }
 }

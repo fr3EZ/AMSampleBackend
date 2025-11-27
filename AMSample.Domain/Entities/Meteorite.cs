@@ -1,13 +1,15 @@
-﻿using AMSample.Domain.Enums;
+﻿
+using AMSample.Domain.Common;
+using AMSample.Domain.Enums;
 
 namespace AMSample.Domain.Entities;
 
-public class Meteorite
+public class Meteorite : Entity
 {
-    public string? Id { get; set; }
-    public string? Name { get; set; }
-    public NameType NameType { get; set; }
-    public string? RecClass { get; set; }
+    public string ExternalId { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+    public string NameType { get; set; } = string.Empty;
+    public string RecClass { get; set; } = string.Empty;
     public decimal? Mass { get; set; }
     public FallType Fall { get; set; }
     public DateTime? Year { get; set; }
