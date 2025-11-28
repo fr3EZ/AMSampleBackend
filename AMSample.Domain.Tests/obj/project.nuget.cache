@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WITMBTDgnII=",
+  "dgSpecHash": "A7A+qyJmvTE=",
   "success": true,
-  "projectFilePath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain.Tests/AMSample.Domain.Tests.csproj",
+  "projectFilePath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain.Tests/AMSample.Domain.Tests.csproj",
   "expectedPackageFiles": [
     "/Users/fr3ez/.nuget/packages/coverlet.collector/6.0.4/coverlet.collector.6.0.4.nupkg.sha512",
     "/Users/fr3ez/.nuget/packages/microsoft.codecoverage/17.14.1/microsoft.codecoverage.17.14.1.nupkg.sha512",

@@ -22,11 +22,12 @@ public class BatchMeteoriteProcessor(
         var meteorites = JsonSerializer.DeserializeAsyncEnumerable<MeteoriteJsonDto>(
             stream, options);
 
-        var existingMeteoritesExternalIds = (await unitOfWork.Meteorites.GetMeteoriteExternalIdsAsync()).ToHashSet();
+        var existingMeteorites = await unitOfWork.Meteorites.GetMeteoritesDictionaryAsync();
+
+        var processedMeteoriteExternalIds = new HashSet<string>();
 
         var batchIndex = 0;
         var batch = new MeteoriteJsonDto[batchSize];
-        var processedMeteoriteExternalIds = new HashSet<string>();
 
         await foreach (var meteorite in meteorites)
         {
@@ -37,12 +38,15 @@ public class BatchMeteoriteProcessor(
 
             if (batchIndex >= batchSize)
             {
-                await ProcessMeteoriteBatchAsync(batch, batchIndex);
+                await ProcessMeteoriteBatchAsync(batch, batchIndex, existingMeteorites);
                 totalProcessed += batchIndex;
                 logger.LogInformation("Processed {Count} records, totally processed: {Total}",
                     batchIndex, totalProcessed);
 
-                processedMeteoriteExternalIds.UnionWith(batch.Select(m => m.ExternalId));
+                foreach (var item in batch)
+                {
+                    if(item is not null) processedMeteoriteExternalIds.Add(item.ExternalId);
+                }
 
                 batchIndex = 0;
 
@@ -52,19 +56,19 @@ public class BatchMeteoriteProcessor(
 
         if (batchIndex > 0)
         {
-            await ProcessMeteoriteBatchAsync(batch, batchIndex);
+            await ProcessMeteoriteBatchAsync(batch, batchIndex, existingMeteorites);
             totalProcessed += batchIndex;
 
             foreach (var item in batch)
             {
-                processedMeteoriteExternalIds.Add(item.ExternalId);
+                if(item is not null) processedMeteoriteExternalIds.Add(item.ExternalId);
             }
 
             logger.LogInformation("Processed last batch: {Count}, totally processed: {Total}",
                 batchIndex, totalProcessed);
         }
 
-        var toDelete = existingMeteoritesExternalIds.Except(processedMeteoriteExternalIds).ToList();
+        var toDelete = existingMeteorites.Keys.Except(processedMeteoriteExternalIds).ToList();
         if (toDelete.Any())
         {
             await unitOfWork.Meteorites.BulkDeleteByExternalIdAsync(toDelete);
@@ -74,11 +78,9 @@ public class BatchMeteoriteProcessor(
         await unitOfWork.Meteorites.SaveChangesAsync();
     }
 
-    private async Task ProcessMeteoriteBatchAsync(MeteoriteJsonDto[] batch, int batchIndex)
+    private async Task ProcessMeteoriteBatchAsync(MeteoriteJsonDto[] batch, int batchIndex,
+        Dictionary<string, Meteorite> existingMeteorites)
     {
-        var existingMeteorites =
-            await unitOfWork.Meteorites.GetMeteoritesDictionaryByExternalIdsAsync(batch.Select(x => x.ExternalId));
-
         var toInsert = new List<Meteorite>(batchIndex);
         var toUpdate = new List<Meteorite>(batchIndex);
 
@@ -86,16 +88,28 @@ public class BatchMeteoriteProcessor(
         {
             var meteorite = mapper.Map<Meteorite>(dto);
 
-            if (existingMeteorites.TryGetValue(dto.ExternalId, out var existing))
+            if (meteorite is not null)
             {
-                if (HasChanges(existing, meteorite))
+                if (existingMeteorites.TryGetValue(meteorite.ExternalId, out var existing))
                 {
-                    toUpdate.Add(meteorite);
+                    meteorite.Id = existing.Id;
+                    
+                    if (meteorite.Geolocation is not null && existing.Geolocation is not null)
+                    {
+                        meteorite.Geolocation.Id = existing.Geolocation.Id;
+                    }
+                    
+                    if (HasChanges(existing, meteorite))
+                    {
+                        toUpdate.Add(meteorite);
+                        // UpdateMeteoriteFromDto(existing, dto);
+                        // toUpdate.Add(existing);
+                    }
                 }
-            }
-            else
-            {
-                toInsert.Add(meteorite);
+                else
+                {
+                    toInsert.Add(meteorite);
+                }
             }
         }
 
@@ -118,7 +132,7 @@ public class BatchMeteoriteProcessor(
                !string.Equals(existing.NameType, updated.NameType) ||
                !string.Equals(existing.RecClass, updated.RecClass) ||
                existing.Mass != updated.Mass ||
-               !string.Equals(existing.Fall, updated.Fall) ||
+               existing.Fall != updated.Fall ||
                existing.Year != updated.Year ||
                existing.RecLat != updated.RecLat ||
                existing.RecLong != updated.RecLong ||

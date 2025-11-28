@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Kz1kkwp8GuE=",
+  "dgSpecHash": "JgwvLcpKd0c=",
   "success": true,
-  "projectFilePath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj",
+  "projectFilePath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain/AMSample.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

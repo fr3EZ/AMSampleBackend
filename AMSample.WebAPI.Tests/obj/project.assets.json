@@ -3443,11 +3443,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample/AMSample.WebAPI.Tests/AMSample.WebAPI.Tests.csproj",
+      "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.WebAPI.Tests/AMSample.WebAPI.Tests.csproj",
       "projectName": "AMSample.WebAPI.Tests",
-      "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.WebAPI.Tests/AMSample.WebAPI.Tests.csproj",
+      "projectPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.WebAPI.Tests/AMSample.WebAPI.Tests.csproj",
       "packagesPath": "/Users/fr3ez/.nuget/packages/",
-      "outputPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.WebAPI.Tests/obj/",
+      "outputPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.WebAPI.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/fr3ez/.nuget/NuGet/NuGet.Config"
@@ -3462,8 +3462,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/Users/fr3ez/RiderProjects/AMSample/AMSample.WebAPI/AMSample.WebAPI.csproj": {
-              "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.WebAPI/AMSample.WebAPI.csproj"
+            "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.WebAPI/AMSample.WebAPI.csproj": {
+              "projectPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.WebAPI/AMSample.WebAPI.csproj"
             }
           }
         }

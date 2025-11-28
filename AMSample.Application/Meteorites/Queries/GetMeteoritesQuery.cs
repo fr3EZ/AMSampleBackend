@@ -5,7 +5,7 @@ public record GetMeteoritesQuery(
     int PageSize,
     MeteoriteFilters Filters) : IRequest<PaginatedMeteoritesDto>;
 
-public class GetMeteoritesQueryHandler(IUnitOfWork unitOfWork, IRedisCacheService cacheService, IMapper mapper)
+public class GetMeteoritesQueryHandler(IUnitOfWork unitOfWork, ICacheService cacheService, IMapper mapper)
     : IRequestHandler<GetMeteoritesQuery, PaginatedMeteoritesDto>
 {
     public async Task<PaginatedMeteoritesDto> Handle(GetMeteoritesQuery request, CancellationToken cancellationToken)

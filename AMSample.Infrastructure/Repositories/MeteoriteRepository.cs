@@ -3,19 +3,12 @@
 public sealed class MeteoriteRepository(MeteoriteDbContext context)
     : BulkRepository<Meteorite>(context), IMeteoriteRepository
 {
-    public async Task<IDictionary<string, Meteorite>> GetMeteoritesDictionaryByExternalIdsAsync(
-        IEnumerable<string> externalIds)
+    public async Task<Dictionary<string, Meteorite>> GetMeteoritesDictionaryAsync()
     {
-        var externalIdsList = externalIds.ToList();
-
-        var meteorites = await context.Meteorites
+        return await context.Meteorites
             .AsNoTracking()
-            .Where(m => externalIdsList.Contains(m.ExternalId))
-            .ToListAsync();
-
-        return meteorites
-            .GroupBy(m => m.ExternalId)
-            .ToDictionary(g => g.Key, g => g.First());
+            .Include(m => m.Geolocation)
+            .ToDictionaryAsync(g => g.ExternalId);
     }
 
     public async Task<IEnumerable<string>> GetMeteoriteExternalIdsAsync()

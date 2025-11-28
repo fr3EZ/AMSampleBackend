@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain.Tests/AMSample.Domain.Tests.csproj": {}
+    "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain.Tests/AMSample.Domain.Tests.csproj": {}
   },
   "projects": {
-    "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain.Tests/AMSample.Domain.Tests.csproj": {
+    "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain.Tests/AMSample.Domain.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain.Tests/AMSample.Domain.Tests.csproj",
+        "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain.Tests/AMSample.Domain.Tests.csproj",
         "projectName": "AMSample.Domain.Tests",
-        "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain.Tests/AMSample.Domain.Tests.csproj",
+        "projectPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain.Tests/AMSample.Domain.Tests.csproj",
         "packagesPath": "/Users/fr3ez/.nuget/packages/",
-        "outputPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain.Tests/obj/",
+        "outputPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/fr3ez/.nuget/NuGet/NuGet.Config"

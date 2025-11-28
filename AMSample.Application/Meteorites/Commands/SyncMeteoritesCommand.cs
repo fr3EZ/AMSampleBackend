@@ -5,7 +5,7 @@ public record SyncMeteoritesCommand : IRequest<Unit>;
 public class SyncMeteoritesCommandHandler(
     IBatchMeteoriteProcessor batchMeteoriteProcessor,
     IMeteoriteApiService meteoriteApiService,
-    IRedisCacheService redisCacheService,
+    ICacheService cacheService,
     ILogger<SyncMeteoritesCommandHandler> logger) : IRequestHandler<SyncMeteoritesCommand, Unit>
 {
     public async Task<Unit> Handle(SyncMeteoritesCommand request, CancellationToken cancellationToken)
@@ -20,7 +20,7 @@ public class SyncMeteoritesCommandHandler(
 
             await batchMeteoriteProcessor.ProcessMeteoriteBatchesByStreamAsync(stream);
 
-            await redisCacheService.RemoveByPrefixAsync(Constants.MeteoritesCachePrefix,cancellationToken);
+            await cacheService.RemoveByPrefixAsync(Constants.MeteoritesCachePrefix,cancellationToken);
 
             logger.LogInformation("Meteorites sync finished");
 

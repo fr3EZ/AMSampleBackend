@@ -28,8 +28,6 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddQuartz(q =>
 {
-    //q.UseMicrosoftDependencyInjectionJobFactory();
-    
     var jobKey = new JobKey(nameof(MeteoritesSyncJob));
     
     q.AddJob<MeteoritesSyncJob>(options => options

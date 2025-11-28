@@ -1,6 +1,6 @@
 namespace AMSample.Application.Common.Interfaces;
 
-public interface IRedisCacheService
+public interface ICacheService
 {
     Task<T?> GetAsync<T>(string key, CancellationToken cancellationToken = default);
     Task SetAsync<T>(string key, T value, DistributedCacheEntryOptions options, CancellationToken cancellationToken = default);

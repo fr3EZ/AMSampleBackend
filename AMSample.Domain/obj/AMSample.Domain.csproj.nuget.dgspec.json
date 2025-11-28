@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj": {}
+    "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain/AMSample.Domain.csproj": {}
   },
   "projects": {
-    "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj": {
+    "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain/AMSample.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj",
+        "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain/AMSample.Domain.csproj",
         "projectName": "AMSample.Domain",
-        "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj",
+        "projectPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain/AMSample.Domain.csproj",
         "packagesPath": "/Users/fr3ez/.nuget/packages/",
-        "outputPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/obj/",
+        "outputPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/fr3ez/.nuget/NuGet/NuGet.Config"

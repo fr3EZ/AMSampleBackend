@@ -2,7 +2,7 @@ namespace AMSample.Application.Common.Interfaces;
 
 public interface IMeteoriteRepository : IBulkRepository<Meteorite>
 {
-    Task<IDictionary<string, Meteorite>> GetMeteoritesDictionaryByExternalIdsAsync(IEnumerable<string> externalIds);
+    Task<Dictionary<string, Meteorite>> GetMeteoritesDictionaryAsync();
     Task<IEnumerable<string>> GetMeteoriteExternalIdsAsync();
     Task<PaginatedEntity<Meteorite>> GetPaginatedMeteorites(int pageNumber, int pageSize,MeteoriteFilters filters);
     Task<Meteorite?> GetByExternalIdAsync(string externalId);

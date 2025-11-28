@@ -14,14 +14,14 @@ namespace AMSample.Application.Tests.Meteorites.Queries;
 public class GetMeteoritesQueryHandlerTests
 {
     private readonly Mock<IUnitOfWork> _mockUnitOfWork;
-    private readonly Mock<IRedisCacheService> _mockCacheService;
+    private readonly Mock<ICacheService> _mockCacheService;
     private readonly Mock<IMapper> _mockMapper;
     private readonly GetMeteoritesQueryHandler _handler;
 
     public GetMeteoritesQueryHandlerTests()
     {
         _mockUnitOfWork = new Mock<IUnitOfWork>();
-        _mockCacheService = new Mock<IRedisCacheService>();
+        _mockCacheService = new Mock<ICacheService>();
         _mockMapper = new Mock<IMapper>();
 
         _handler = new GetMeteoritesQueryHandler(

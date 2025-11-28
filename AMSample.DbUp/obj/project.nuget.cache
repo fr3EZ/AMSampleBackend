@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "miVZAPfHPqQ=",
+  "dgSpecHash": "ZbCnTnhmXk4=",
   "success": true,
-  "projectFilePath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.DbUp/AMSample.DbUp.csproj",
+  "projectFilePath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.DbUp/AMSample.DbUp.csproj",
   "expectedPackageFiles": [
     "/Users/fr3ez/.nuget/packages/dbup-core/6.0.15/dbup-core.6.0.15.nupkg.sha512",
     "/Users/fr3ez/.nuget/packages/dbup-postgresql/6.1.5/dbup-postgresql.6.1.5.nupkg.sha512",

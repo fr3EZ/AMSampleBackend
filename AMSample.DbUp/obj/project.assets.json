@@ -697,11 +697,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample/AMSample.DbUp/AMSample.DbUp.csproj",
+      "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.DbUp/AMSample.DbUp.csproj",
       "projectName": "AMSample.DbUp",
-      "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.DbUp/AMSample.DbUp.csproj",
+      "projectPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.DbUp/AMSample.DbUp.csproj",
       "packagesPath": "/Users/fr3ez/.nuget/packages/",
-      "outputPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.DbUp/obj/",
+      "outputPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.DbUp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/fr3ez/.nuget/NuGet/NuGet.Config"

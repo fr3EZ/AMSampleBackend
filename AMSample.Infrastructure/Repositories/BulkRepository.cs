@@ -5,16 +5,12 @@ public class BulkRepository<TEntity>(DbContext context) : BaseRepository<TEntity
 {
     public async Task BulkInsertAsync(IEnumerable<TEntity> entities)
     {
-        var entitiesList = entities.ToList();
-
-        await Context.AddRangeAsync(entitiesList);
+        await Context.AddRangeAsync(entities);
     }
 
     public void BulkUpdate(IEnumerable<TEntity> entities)
     {
-        var entitiesList = entities.ToList();
-
-        Context.UpdateRange(entitiesList);
+        Context.UpdateRange(entities);
     }
 
     public async Task BulkDeleteAsync(IEnumerable<int> ids)

@@ -7,6 +7,7 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<SyncDataConfig>(configuration.GetSection(nameof(SyncDataConfig)));
+        services.Configure<RedisConfig>(configuration.GetSection(nameof(RedisConfig)));
 
         var databaseConfig = configuration.GetSection(nameof(DatabaseConfig)).Get<DatabaseConfig>();
         var redisConfig = configuration.GetSection(nameof(RedisConfig)).Get<RedisConfig>();
@@ -55,7 +56,7 @@ public static class DependencyInjection
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-        services.AddScoped<IRedisCacheService, RedisCacheService>();
+        services.AddScoped<ICacheService, RedisCacheService>();
 
         services.AddScoped<IMeteoriteApiService, MeteoriteApiService>();
 

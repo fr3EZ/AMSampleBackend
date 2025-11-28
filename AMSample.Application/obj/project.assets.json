@@ -871,11 +871,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Application/AMSample.Application.csproj",
+      "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Application/AMSample.Application.csproj",
       "projectName": "AMSample.Application",
-      "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Application/AMSample.Application.csproj",
+      "projectPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Application/AMSample.Application.csproj",
       "packagesPath": "/Users/fr3ez/.nuget/packages/",
-      "outputPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Application/obj/",
+      "outputPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Application/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/fr3ez/.nuget/NuGet/NuGet.Config"
@@ -890,8 +890,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj": {
-              "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj"
+            "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain/AMSample.Domain.csproj": {
+              "projectPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain/AMSample.Domain.csproj"
             }
           }
         }

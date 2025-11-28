@@ -2961,11 +2961,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure.Tests/AMSample.Infrastructure.Tests.csproj",
+      "projectUniqueName": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Infrastructure.Tests/AMSample.Infrastructure.Tests.csproj",
       "projectName": "AMSample.Infrastructure.Tests",
-      "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure.Tests/AMSample.Infrastructure.Tests.csproj",
+      "projectPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Infrastructure.Tests/AMSample.Infrastructure.Tests.csproj",
       "packagesPath": "/Users/fr3ez/.nuget/packages/",
-      "outputPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure.Tests/obj/",
+      "outputPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Infrastructure.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/fr3ez/.nuget/NuGet/NuGet.Config"
@@ -2980,14 +2980,14 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/Users/fr3ez/RiderProjects/AMSample/AMSample.Application/AMSample.Application.csproj": {
-              "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Application/AMSample.Application.csproj"
+            "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Application/AMSample.Application.csproj": {
+              "projectPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Application/AMSample.Application.csproj"
             },
-            "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj": {
-              "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Domain/AMSample.Domain.csproj"
+            "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain/AMSample.Domain.csproj": {
+              "projectPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Domain/AMSample.Domain.csproj"
             },
-            "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure/AMSample.Infrastructure.csproj": {
-              "projectPath": "/Users/fr3ez/RiderProjects/AMSample/AMSample.Infrastructure/AMSample.Infrastructure.csproj"
+            "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Infrastructure/AMSample.Infrastructure.csproj": {
+              "projectPath": "/Users/fr3ez/RiderProjects/AMSample.Back/AMSample.Infrastructure/AMSample.Infrastructure.csproj"
             }
           }
         }

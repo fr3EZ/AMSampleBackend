@@ -18,7 +18,7 @@ public class SyncMeteoritesCommandHandlerTests
 {
     private readonly Mock<IMeteoriteApiService> _meteoriteApiServiceMock;
     private readonly Mock<IBatchMeteoriteProcessor> _batchMeteoriteProcessorMock;
-    private readonly Mock<IRedisCacheService> _redisCacheServiceMock;
+    private readonly Mock<ICacheService> _cacheServiceMock;
     private readonly Mock<ILogger<SyncMeteoritesCommandHandler>> _loggerMock;
     private readonly SyncMeteoritesCommandHandler _handler;
     private readonly CancellationToken _cancellationToken;
@@ -31,7 +31,7 @@ public class SyncMeteoritesCommandHandlerTests
         _handler = new SyncMeteoritesCommandHandler(
             _batchMeteoriteProcessorMock.Object,
             _meteoriteApiServiceMock.Object,
-            _redisCacheServiceMock.Object,
+            _cacheServiceMock.Object,
             _loggerMock.Object);
         _cancellationToken = CancellationToken.None;
     }
