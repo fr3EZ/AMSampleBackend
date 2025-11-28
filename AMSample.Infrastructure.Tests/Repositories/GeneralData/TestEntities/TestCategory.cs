@@ -1,6 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using AMSample.Domain.Common;
-
 namespace AMSample.Infrastructure.Tests.Repositories.GeneralData.TestEntities;
 
 public class TestCategory : Entity

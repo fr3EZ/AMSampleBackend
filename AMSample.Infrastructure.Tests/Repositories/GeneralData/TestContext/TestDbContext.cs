@@ -1,6 +1,3 @@
-using AMSample.Infrastructure.Tests.Repositories.GeneralData.TestEntities;
-using Microsoft.EntityFrameworkCore;
-
 namespace AMSample.Infrastructure.Tests.Repositories.GeneralData.TestContext;
 
 public class TestDbContext : DbContext

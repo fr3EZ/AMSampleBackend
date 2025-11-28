@@ -1,7 +1,3 @@
-using AMSample.Infrastructure.Tests.Repositories.BaseRepositoryTests.Initializer;
-using AMSample.Infrastructure.Tests.Repositories.GeneralData.TestEntities;
-using Microsoft.EntityFrameworkCore;
-
 namespace AMSample.Infrastructure.Tests.Repositories.BaseRepositoryTests;
 
 public class AddTests : TestBaseRepositoryInitializer

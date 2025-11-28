@@ -18,9 +18,9 @@ var devOrigin = "devOrigin";
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(devOrigin,
-        builder =>
+        c =>
         {
-            builder.AllowAnyOrigin()
+            c.AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader();
         });
@@ -38,8 +38,8 @@ builder.Services.AddQuartz(q =>
     q.AddTrigger(options => options
         .WithIdentity($"{nameof(MeteoritesSyncJob)}-trigger")
         .ForJob(jobKey)
-        //.WithCronSchedule("0 0 3 * * ?")
-        .WithCronSchedule("0 */2 * * * ?") // Каждые 2 минуты
+        .WithCronSchedule("0 0 3 * * ?")
+        //.WithCronSchedule("0 */2 * * * ?") // Для теста каждые 2 минуты
         .WithDescription("Meteorites sync job trigger")
     );
 });

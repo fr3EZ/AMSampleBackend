@@ -1,8 +1,3 @@
-using AMSample.Application.Common.Enums;
-using AMSample.Application.Meteorites.Models;
-using AMSample.Infrastructure.Helpers;
-using AMSample.Infrastructure.Tests.Helpers.MeteoriteQueryHelperTests.TestData;
-
 namespace AMSample.Infrastructure.Tests.Helpers.MeteoriteQueryHelperTests;
 
 public class ApplySortingTests : MeteoriteQueryHelperTestData
@@ -12,7 +7,7 @@ public class ApplySortingTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        MeteoriteFilters? filters = null;
+        MeteoriteFiltersDto? filters = null;
 
         // Act
         var result = MeteoriteQueryHelper.ApplySorting(query, filters);
@@ -28,7 +23,7 @@ public class ApplySortingTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: null,
             YearTo: null,
             RecClass: null,
@@ -53,7 +48,7 @@ public class ApplySortingTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: new DateTime(1814, 1, 1),
             YearTo: null,
             RecClass: null,
@@ -78,7 +73,7 @@ public class ApplySortingTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: null,
             YearTo: null,
             RecClass: null,
@@ -103,7 +98,7 @@ public class ApplySortingTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: null,
             YearTo: null,
             RecClass: null,
@@ -125,7 +120,7 @@ public class ApplySortingTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: null,
             YearTo: null,
             RecClass: null,

@@ -1,5 +1,3 @@
-using AMSample.Infrastructure.Tests.Repositories.BaseRepositoryTests.Initializer;
-
 namespace AMSample.Infrastructure.Tests.Repositories.BaseRepositoryTests;
 
 public class GetByIdAsyncTests : TestBaseRepositoryInitializer

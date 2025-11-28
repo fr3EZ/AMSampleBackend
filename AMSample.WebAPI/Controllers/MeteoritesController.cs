@@ -16,7 +16,7 @@ public class MeteoritesController(IMediator mediator, ILogger<MeteoritesControll
         [FromQuery] SortByType sortBy = SortByType.Year,
         [FromQuery] SortDirection sortDirection = SortDirection.Descending)
     {
-        var filters = new MeteoriteFilters(yearFrom, yearTo, recClass, nameContains, groupBy, sortBy, sortDirection);
+        var filters = new MeteoriteFiltersDto(yearFrom, yearTo, recClass, nameContains, groupBy, sortBy, sortDirection);
 
         var paginatedMeteorites = await mediator.Send(new GetMeteoritesQuery(pageNumber, pageSize, filters));
 

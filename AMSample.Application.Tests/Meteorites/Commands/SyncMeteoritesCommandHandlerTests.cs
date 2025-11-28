@@ -1,17 +1,3 @@
-using System.Net;
-using Moq;
-using Moq.Protected;
-using System.Text;
-using AMSample.Application.Common.Interfaces;
-using AMSample.Application.Configuration;
-using AMSample.Application.Meteorites.Commands;
-using AMSample.Application.Meteorites.Models;
-using AMSample.Domain.Entities;
-using AutoMapper;
-using FluentAssertions;
-using MediatR;
-using Microsoft.Extensions.Logging;
-
 namespace AMSample.Application.Tests.Meteorites.Commands;
 
 public class SyncMeteoritesCommandHandlerTests

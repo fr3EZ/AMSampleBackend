@@ -1,14 +1,3 @@
-using AMSample.Application.Common.Enums;
-using AMSample.Application.Common.Interfaces;
-using AMSample.Application.Meteorites.Models;
-using AMSample.Application.Meteorites.Queries;
-using AMSample.Domain.Common;
-using AMSample.Domain.Entities;
-using AutoMapper;
-using FluentAssertions;
-using Microsoft.Extensions.Caching.Distributed;
-using Moq;
-
 namespace AMSample.Application.Tests.Meteorites.Queries;
 
 public class GetMeteoritesQueryHandlerTests
@@ -34,7 +23,7 @@ public class GetMeteoritesQueryHandlerTests
     public async Task Handle_WithCacheHit_ReturnsCachedResult()
     {
         // Arrange
-        var query = new GetMeteoritesQuery(1, 20, new MeteoriteFilters(
+        var query = new GetMeteoritesQuery(1, 20, new MeteoriteFiltersDto(
             YearFrom: new DateTime(1970, 1, 1),
             YearTo: new DateTime(1980, 1, 1),
             RecClass: "L5",
@@ -67,7 +56,7 @@ public class GetMeteoritesQueryHandlerTests
         // Assert
         result.Should().BeEquivalentTo(cachedResult);
         _mockUnitOfWork.Verify(
-            u => u.Meteorites.GetPaginatedMeteorites(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<MeteoriteFilters>()),
+            u => u.Meteorites.GetPaginatedMeteorites(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<MeteoriteFiltersDto>()),
             Times.Never);
         _mockCacheService.Verify(
             c => c.SetAsync(It.IsAny<string>(), It.IsAny<PaginatedMeteoritesDto>(),

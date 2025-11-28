@@ -1,23 +1,17 @@
-using AMSample.Infrastructure.Repositories;
-using AMSample.Infrastructure.Tests.Repositories.GeneralData.TestContext;
-using AMSample.Infrastructure.Tests.Repositories.GeneralData.TestEntities;
-using Microsoft.EntityFrameworkCore;
-
 namespace AMSample.Infrastructure.Tests.Repositories.BaseRepositoryTests.Initializer;
 
 public abstract class TestBaseRepositoryInitializer : IDisposable
 {
     protected readonly TestDbContext Context;
     protected readonly BaseRepository<TestEntity> Repository;
-    private readonly DbContextOptions<TestDbContext> _options;
 
     protected TestBaseRepositoryInitializer()
     {
-        _options = new DbContextOptionsBuilder<TestDbContext>()
+        var options = new DbContextOptionsBuilder<TestDbContext>()
             .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
             .Options;
 
-        Context = new TestDbContext(_options);
+        Context = new TestDbContext(options);
 
         SeedTestData();
 
@@ -62,6 +56,6 @@ public abstract class TestBaseRepositoryInitializer : IDisposable
 
     public void Dispose()
     {
-        Context?.Dispose();
+        Context.Dispose();
     }
 }

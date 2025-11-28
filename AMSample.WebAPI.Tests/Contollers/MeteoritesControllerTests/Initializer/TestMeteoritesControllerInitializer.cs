@@ -1,9 +1,3 @@
-using AMSample.Application.Meteorites.Models;
-using AMSample.WebAPI.Controllers;
-using MediatR;
-using Microsoft.Extensions.Logging;
-using Moq;
-
 namespace AMSample.WebAPI.Tests.Contollers.MeteoritesControllerTests.Initializer;
 
 public abstract class TestMeteoritesControllerInitializer
@@ -38,18 +32,18 @@ public abstract class TestMeteoritesControllerInitializer
 
     protected PaginatedMeteoritesDto CreateGroupedMeteoritesDto()
     {
-        var groupedResults = new GroupResultDto[]
+        var groupedResults = new EntityGroup[]
         {
-            new() {GroupKey = "2020", Count = 5, TotalMass = 1000m},
-            new() {GroupKey = "2021", Count = 3, TotalMass = 500m},
-            new() {GroupKey = "2022", Count = 2, TotalMass = 200m}
+            new() {Key = "2020", Count = 5, TotalMass = 1000m},
+            new() {Key = "2021", Count = 3, TotalMass = 500m},
+            new() {Key = "2022", Count = 2, TotalMass = 200m}
         };
 
         return new PaginatedMeteoritesDto
         {
             TotalCount = 10,
             TotalPages = 1,
-            GroupedResults = groupedResults
+            EntityGroups = groupedResults
         };
     }
 }

@@ -1,10 +1,3 @@
-using AMSample.Application.Common.Enums;
-using AMSample.Application.Meteorites.Models;
-using AMSample.Application.Meteorites.Queries;
-using AMSample.WebAPI.Tests.Contollers.MeteoritesControllerTests.Initializer;
-using Microsoft.AspNetCore.Mvc;
-using Moq;
-
 namespace AMSample.WebAPI.Tests.Contollers.MeteoritesControllerTests;
 
 public class GetMeteoritesTests : TestMeteoritesControllerInitializer
@@ -68,13 +61,13 @@ public class GetMeteoritesTests : TestMeteoritesControllerInitializer
 
         MediatorMock.Verify(m => m.Send(
                 It.Is<GetMeteoritesQuery>(q =>
-                    q.Filters.YearFrom == yearFrom &&
-                    q.Filters.YearTo == yearTo &&
-                    q.Filters.RecClass == recClass &&
-                    q.Filters.NameContains == nameContains &&
-                    q.Filters.GroupBy == groupBy &&
-                    q.Filters.SortBy == sortBy &&
-                    q.Filters.SortDirection == sortDirection),
+                    q.FiltersDto.YearFrom == yearFrom &&
+                    q.FiltersDto.YearTo == yearTo &&
+                    q.FiltersDto.RecClass == recClass &&
+                    q.FiltersDto.NameContains == nameContains &&
+                    q.FiltersDto.GroupBy == groupBy &&
+                    q.FiltersDto.SortBy == sortBy &&
+                    q.FiltersDto.SortDirection == sortDirection),
                 It.IsAny<CancellationToken>()),
             Times.Once);
     }
@@ -99,9 +92,9 @@ public class GetMeteoritesTests : TestMeteoritesControllerInitializer
         var okResult = Assert.IsType<OkObjectResult>(result.Result);
         var returnValue = Assert.IsType<PaginatedMeteoritesDto>(okResult.Value);
 
-        Assert.NotNull(returnValue.GroupedResults);
-        Assert.Equal(3, returnValue.GroupedResults.Length);
-        Assert.Equal("2020", returnValue.GroupedResults[0].GroupKey);
+        Assert.NotNull(returnValue.EntityGroups);
+        Assert.Equal(3, returnValue.EntityGroups.Length);
+        Assert.Equal("2020", returnValue.EntityGroups[0].Key);
     }
 
     [Fact]
@@ -124,13 +117,13 @@ public class GetMeteoritesTests : TestMeteoritesControllerInitializer
 
         MediatorMock.Verify(m => m.Send(
                 It.Is<GetMeteoritesQuery>(q =>
-                    q.Filters.YearFrom == null &&
-                    q.Filters.YearTo == null &&
-                    q.Filters.RecClass == null &&
-                    q.Filters.NameContains == null &&
-                    q.Filters.GroupBy == GroupByType.None && // Default value
-                    q.Filters.SortBy == SortByType.Year && // Default value
-                    q.Filters.SortDirection == SortDirection.Descending), // Default value
+                    q.FiltersDto.YearFrom == null &&
+                    q.FiltersDto.YearTo == null &&
+                    q.FiltersDto.RecClass == null &&
+                    q.FiltersDto.NameContains == null &&
+                    q.FiltersDto.GroupBy == GroupByType.None && // Default value
+                    q.FiltersDto.SortBy == SortByType.Year && // Default value
+                    q.FiltersDto.SortDirection == SortDirection.Descending), // Default value
                 It.IsAny<CancellationToken>()),
             Times.Once);
     }
@@ -157,8 +150,8 @@ public class GetMeteoritesTests : TestMeteoritesControllerInitializer
 
         MediatorMock.Verify(m => m.Send(
                 It.Is<GetMeteoritesQuery>(q =>
-                    q.Filters.RecClass == "" &&
-                    q.Filters.NameContains == ""),
+                    q.FiltersDto.RecClass == "" &&
+                    q.FiltersDto.NameContains == ""),
                 It.IsAny<CancellationToken>()),
             Times.Once);
     }
@@ -189,8 +182,8 @@ public class GetMeteoritesTests : TestMeteoritesControllerInitializer
 
             MediatorMock.Verify(m => m.Send(
                     It.Is<GetMeteoritesQuery>(q =>
-                        q.Filters.SortBy == testCase.SortBy &&
-                        q.Filters.SortDirection == testCase.SortDirection),
+                        q.FiltersDto.SortBy == testCase.SortBy &&
+                        q.FiltersDto.SortDirection == testCase.SortDirection),
                     It.IsAny<CancellationToken>()),
                 Times.Once);
         }

@@ -13,18 +13,18 @@ public class GetMeteoritesQueryValidator : AbstractValidator<GetMeteoritesQuery>
         RuleFor(q => q.PageSize)
             .LessThanOrEqualTo(100).WithMessage("Page size must be equal 100 or less");
 
-        RuleFor(q => q.Filters.GroupBy)
+        RuleFor(q => q.FiltersDto.GroupBy)
             .IsInEnum().WithMessage("Group by is invalid");
 
-        RuleFor(q => q.Filters.SortBy)
+        RuleFor(q => q.FiltersDto.SortBy)
             .IsInEnum().WithMessage("Sort by is invalid");
 
-        RuleFor(q => q.Filters.SortDirection)
+        RuleFor(q => q.FiltersDto.SortDirection)
             .IsInEnum().WithMessage("Sort direction is invalid");
 
-        When(q => !string.IsNullOrEmpty(q.Filters.RecClass), () =>
+        When(q => !string.IsNullOrEmpty(q.FiltersDto.RecClass), () =>
         {
-            RuleFor(q => q.Filters.RecClass)
+            RuleFor(q => q.FiltersDto.RecClass)
                 .Must(HaveCorrectValue).WithMessage("Rec class is invalid");
         });
     }

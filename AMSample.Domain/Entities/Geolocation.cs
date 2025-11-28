@@ -1,6 +1,3 @@
-using AMSample.Domain.Common;
-using AMSample.Domain.Enums;
-
 namespace AMSample.Domain.Entities;
 
 public class Geolocation : Entity

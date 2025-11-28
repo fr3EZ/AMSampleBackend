@@ -1,5 +1,3 @@
-using AMSample.Domain.Common;
-
 namespace AMSample.Application.Common.Interfaces;
 
 public interface IBaseRepository<TEntity> where TEntity : class

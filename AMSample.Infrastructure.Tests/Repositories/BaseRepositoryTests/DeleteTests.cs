@@ -1,6 +1,3 @@
-using AMSample.Infrastructure.Tests.Repositories.BaseRepositoryTests.Initializer;
-using Microsoft.EntityFrameworkCore;
-
 namespace AMSample.Infrastructure.Tests.Repositories.BaseRepositoryTests;
 
 public class DeleteTests : TestBaseRepositoryInitializer

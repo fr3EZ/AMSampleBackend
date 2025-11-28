@@ -1,5 +1,3 @@
-using StackExchange.Redis;
-
 namespace AMSample.Infrastructure;
 
 public static class DependencyInjection
@@ -8,6 +6,7 @@ public static class DependencyInjection
     {
         services.Configure<SyncDataConfig>(configuration.GetSection(nameof(SyncDataConfig)));
         services.Configure<RedisConfig>(configuration.GetSection(nameof(RedisConfig)));
+        services.Configure<BatchProcessorConfig>(configuration.GetSection(nameof(BatchProcessorConfig)));
 
         var databaseConfig = configuration.GetSection(nameof(DatabaseConfig)).Get<DatabaseConfig>();
         var redisConfig = configuration.GetSection(nameof(RedisConfig)).Get<RedisConfig>();
@@ -45,7 +44,7 @@ public static class DependencyInjection
                 options.InstanceName = redisConfig.InstanceName;
             });
             
-            services.AddSingleton<IConnectionMultiplexer>(sp => 
+            services.AddSingleton<IConnectionMultiplexer>(_ => 
                 ConnectionMultiplexer.Connect(redisConfig.ConnectionString));
         }
 

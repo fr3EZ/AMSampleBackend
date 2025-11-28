@@ -3,7 +3,7 @@ namespace AMSample.Application.Meteorites.Queries;
 public record GetMeteoritesQuery(
     int PageNumber,
     int PageSize,
-    MeteoriteFilters Filters) : IRequest<PaginatedMeteoritesDto>;
+    MeteoriteFiltersDto FiltersDto) : IRequest<PaginatedMeteoritesDto>;
 
 public class GetMeteoritesQueryHandler(IUnitOfWork unitOfWork, ICacheService cacheService, IMapper mapper)
     : IRequestHandler<GetMeteoritesQuery, PaginatedMeteoritesDto>
@@ -14,13 +14,13 @@ public class GetMeteoritesQueryHandler(IUnitOfWork unitOfWork, ICacheService cac
         {
             request.PageNumber,
             request.PageSize,
-            request.Filters.YearFrom,
-            request.Filters.YearTo,
-            request.Filters.RecClass,
-            request.Filters.NameContains,
-            request.Filters.GroupBy,
-            request.Filters.SortBy,
-            request.Filters.SortDirection
+            request.FiltersDto.YearFrom,
+            request.FiltersDto.YearTo,
+            request.FiltersDto.RecClass,
+            request.FiltersDto.NameContains,
+            request.FiltersDto.GroupBy,
+            request.FiltersDto.SortBy,
+            request.FiltersDto.SortDirection
         });
 
         var cachedResult = await cacheService.GetAsync<PaginatedMeteoritesDto>(cacheKey, cancellationToken);
@@ -31,7 +31,7 @@ public class GetMeteoritesQueryHandler(IUnitOfWork unitOfWork, ICacheService cac
         }
 
         var meteorites =
-            await unitOfWork.Meteorites.GetPaginatedMeteorites(request.PageNumber, request.PageSize, request.Filters);
+            await unitOfWork.Meteorites.GetPaginatedMeteorites(request.PageNumber, request.PageSize, request.FiltersDto);
 
         var result = mapper.Map<PaginatedMeteoritesDto>(meteorites);
 

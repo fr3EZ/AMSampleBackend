@@ -1,7 +1,3 @@
-using AMSample.Application.Meteorites.Models;
-using AMSample.Infrastructure.Helpers;
-using AMSample.Infrastructure.Tests.Helpers.MeteoriteQueryHelperTests.TestData;
-
 namespace AMSample.Infrastructure.Tests.Helpers.MeteoriteQueryHelperTests;
 
 public class ApplyFiltersTests : MeteoriteQueryHelperTestData
@@ -11,7 +7,7 @@ public class ApplyFiltersTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        MeteoriteFilters? filters = null;
+        MeteoriteFiltersDto? filters = null;
 
         // Act
         var result = MeteoriteQueryHelper.ApplyFilters(query, filters);
@@ -28,7 +24,7 @@ public class ApplyFiltersTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: new DateTime(yearFrom, 1, 1),
             YearTo: new DateTime(yearTo, 1, 1),
             RecClass: null,
@@ -55,7 +51,7 @@ public class ApplyFiltersTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: new DateTime(1950, 1, 1),
             YearTo: null,
             RecClass: null,
@@ -78,7 +74,7 @@ public class ApplyFiltersTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: null,
             YearTo: new DateTime(1900, 1, 1),
             RecClass: null,
@@ -105,7 +101,7 @@ public class ApplyFiltersTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: null,
             YearTo: null,
             RecClass: recClass,
@@ -132,7 +128,7 @@ public class ApplyFiltersTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: null,
             YearTo: null,
             RecClass: null,
@@ -158,7 +154,7 @@ public class ApplyFiltersTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: null,
             YearTo: null,
             RecClass: recClass,
@@ -183,7 +179,7 @@ public class ApplyFiltersTests : MeteoriteQueryHelperTestData
     {
         // Arrange
         var query = GetTestQueryable();
-        var filters = new MeteoriteFilters(
+        var filters = new MeteoriteFiltersDto(
             YearFrom: null,
             YearTo: null,
             RecClass: null,

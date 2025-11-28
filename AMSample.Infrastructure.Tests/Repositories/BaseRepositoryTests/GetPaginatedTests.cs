@@ -1,6 +1,3 @@
-using AMSample.Infrastructure.Tests.Repositories.BaseRepositoryTests.Initializer;
-using AMSample.Infrastructure.Tests.Repositories.GeneralData.TestEntities;
-
 namespace AMSample.Infrastructure.Tests.Repositories.BaseRepositoryTests;
 
 public class GetPaginatedTests : TestBaseRepositoryInitializer

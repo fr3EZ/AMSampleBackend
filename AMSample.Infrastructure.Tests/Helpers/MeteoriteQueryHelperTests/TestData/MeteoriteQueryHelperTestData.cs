@@ -1,6 +1,3 @@
-using AMSample.Domain.Entities;
-using AMSample.Domain.Enums;
-
 namespace AMSample.Infrastructure.Tests.Helpers.MeteoriteQueryHelperTests.TestData;
 
 public class MeteoriteQueryHelperTestData

@@ -1,6 +1,3 @@
-using Microsoft.Extensions.Options;
-using StackExchange.Redis;
-
 namespace AMSample.Infrastructure.Services;
 
 public class RedisCacheService(IDistributedCache cache, IConnectionMultiplexer redis, IOptions<RedisConfig> redisConfig, ILogger<RedisCacheService> logger)
@@ -22,7 +19,7 @@ public class RedisCacheService(IDistributedCache cache, IConnectionMultiplexer r
         }
     }
     
-    private List<string> GetKeysByPatternAsync(string pattern, CancellationToken cancellationToken = default)
+    private List<string> GetKeysByPatternAsync(string pattern)
     {
         var keys = new List<string>();
         
@@ -66,12 +63,12 @@ public class RedisCacheService(IDistributedCache cache, IConnectionMultiplexer r
         }
     }
     
-    public async Task RemoveByPrefixAsync(string prefix, CancellationToken cancellationToken = default)
+    public async Task RemoveByPrefixAsync(string prefix, CancellationToken cancellationToken)
     {
         try
         {
             var pattern = $"{redisConfig.Value.InstanceName}{prefix}:*";
-            var keys = GetKeysByPatternAsync(pattern, cancellationToken);
+            var keys = GetKeysByPatternAsync(pattern);
             
             var removedCount = 0;
             foreach (var key in keys)

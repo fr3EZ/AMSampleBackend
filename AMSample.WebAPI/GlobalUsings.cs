@@ -1,9 +1,9 @@
 global using AMSample.Application;
 global using AMSample.Application.Common.Enums;
 global using AMSample.Application.Common.Exceptions;
-global using AMSample.Application.Meteorites.Models;
 global using AMSample.Application.Meteorites.Queries;
 global using AMSample.Application.Meteorites.Commands;
+global using AMSample.Application.Meteorites.Dtos;
 global using AMSample.Infrastructure;
 global using AMSample.WebAPI.BackgroundJobs;
 global using AMSample.WebAPI.Filters;

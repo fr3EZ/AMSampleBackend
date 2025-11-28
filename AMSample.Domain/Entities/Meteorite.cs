@@ -1,8 +1,4 @@
-﻿
-using AMSample.Domain.Common;
-using AMSample.Domain.Enums;
-
-namespace AMSample.Domain.Entities;
+﻿namespace AMSample.Domain.Entities;
 
 public class Meteorite : Entity
 {
