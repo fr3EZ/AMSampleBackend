@@ -52,6 +52,8 @@ public static class DependencyInjection
             .AddPolicyHandler(HttpClientPolicies.GetRetryPolicy())
             .AddPolicyHandler(HttpClientPolicies.GetCircuitBreakerPolicy())
             .AddPolicyHandler(HttpClientPolicies.GetTimeoutPolicy());
+        
+        services.AddAutoMapper(_ => {}, Assembly.GetExecutingAssembly());
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 

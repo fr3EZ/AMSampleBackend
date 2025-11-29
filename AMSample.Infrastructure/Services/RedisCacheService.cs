@@ -19,7 +19,7 @@ public class RedisCacheService(IDistributedCache cache, IConnectionMultiplexer r
         }
     }
     
-    private List<string> GetKeysByPatternAsync(string pattern)
+    private List<string> GetKeysByPattern(string pattern)
     {
         var keys = new List<string>();
         
@@ -68,7 +68,7 @@ public class RedisCacheService(IDistributedCache cache, IConnectionMultiplexer r
         try
         {
             var pattern = $"{redisConfig.Value.InstanceName}{prefix}:*";
-            var keys = GetKeysByPatternAsync(pattern);
+            var keys = GetKeysByPattern(pattern);
             
             var removedCount = 0;
             foreach (var key in keys)
